@@ -10,40 +10,36 @@ var myAtoi = function (str) {
     let sign = 1;
     let res = 0;
 
-    // if(!str.length){
-    //     return 0;
-    // }
+    if(!str.length){
+        return 0;
+    }
     
-    // while(str[index] === " ") index++;
+    while(str[index] === " ") index++;
 
+    if(str[index] === "-" ){
+        sign = -1;
+        index++;
+    } else if (str[index] === "+"){
+        index++;
+    }
 
-    // if(str[index] === "-" ){
-    //     sign = -1;
-    //     index++;
-    // } else if (str[index] === "+"){
-    //     index++;
-    // }
+    let start = index
 
-    // let start = index
+    while(str[index] >= "0" && str[index] <= "9" ) index ++;
 
-    // while(str[index] >= "0" && str[index] <= "9" ) index ++;
+    res = parseInt(str.slice(start,index))*sign
 
-    // res = parseInt(str.slice(start,index))*sign
+    if(!res){
+        return 0
+    }
 
-    // if(!res){
-    //     return 0
-    // }
+    if(res > INT_MAX){
+        return INT_MAX
+    } else if (res < INT_MIN){
+        return INT_MIN
+    }
 
-    // if(res > INT_MAX){
-    //     return INT_MAX
-    // } else if (res < INT_MIN){
-    //     return INT_MIN
-    // }
-
-    // return res
-
-
-
+    return res
 };
 
 
