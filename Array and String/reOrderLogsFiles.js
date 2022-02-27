@@ -8,9 +8,7 @@ var reorderLogFiles = function(logs) {
 
     let letter = logs.filter(v => v[1].match(/^[a-z\s]+$/))
     let digit = logs.filter(v => v[1].match(/[\d\s]+$/))
-
     letter.sort((a,b) => (c = a[1].localeCompare(b[1])) ? c : a[0].localeCompare(b[0]))
-
     let result = letter.concat(digit)
     result = result.map(a => a.join(' '))
     return result;
